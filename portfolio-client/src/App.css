@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+.theme-btn {
+  color: var(--text-primary);
+  background-color: var(--btn-primary-bg);
+  border: 1px solid var(--btn-primary-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  padding: 1em 2em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.theme-btn:hover {
+  background-color: var(--btn-primary-hover-bg);
+  border-color: var(--accent-green);
+}
+
+/* Functions / Methods */
+.code-function {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+/* Functions / Methods */
+.code-method {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+/* Keywords (if, else, return, const, etc.) */
+.code-keyword {
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+/* Strings */
+.code-string {
+  color: var(--accent-orange);
+}
+
+/* Types / Classes */
+.code-type {
+  color: var(--accent-green);
+  font-weight: 600;
+}

@@ -1,0 +1,282 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  hanging-punctuation: first last; /* nicer text wrapping */
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Backgrounds */
+  --bg-main: #f5f7fa; /* soft off-white main background */
+  --bg-secondary: #d7dae0; /* slightly darker panel background */
+  --bg-transparent: rgba(255, 255, 255, 0.15);
+
+  /* Text */
+  --text-primary: #0a0f1c; /* dark navy text */
+  --text-secondary: #4a5165; /* muted gray-blue */
+  --text-accent: #ff8c00; /* warm orange accent */
+  --text-highlight: #007acc; /* vivid blue highlight */
+
+  /* Buttons */
+  --btn-primary-bg: #e5e7eb; /* pale blue background */
+  --btn-primary-border: #5065f2; /* same blue as dark theme border */
+  --btn-primary-hover-bg: #e0e6f6;
+  --btn-primary-text: #0a0f1c; /* dark text for readability */
+
+  /* Neon Gradients */
+  --gradient-1: linear-gradient(90deg, #9a4dff, #e56cff);
+  --gradient-2: linear-gradient(90deg, #4dd2ff, #9a4dff);
+  --gradient-3: linear-gradient(90deg, #ffba66, #ff6fa1);
+
+  /* Icons / Accents */
+  --accent-pink: #ff6fa1;
+  --accent-cyan: #4dd2ff;
+  --accent-orange: #ff8c00;
+  --accent-green: #00c97c;
+  --accent-purple: #b084ff;
+  --accent-blue: #4fa3ff;
+  --accent-yellow: #ffd166;
+  --accent-red: #ff4e4e;
+  --accent-gold: #ffcc66;
+
+  /* Borders */
+  --border-glow: 0 0 6px rgba(80, 101, 242, 0.3);
+
+  --accent-purple-alpha: rgba(127, 0, 255, 0.8);
+  --accent-pink-alpha: rgba(255, 78, 205, 0.7);
+  --accent-blue-alpha: rgba(78, 161, 255, 0.7);
+}
+
+.dark {
+  /* Backgrounds */
+  --bg-main: #04070e;
+  --bg-secondary: #09112a;
+  --bg-transparent: gba(0, 0, 0, 0.25);
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #c0c6d4;
+  --text-accent: #ffae33;
+  --text-highlight: #00e5ff;
+
+  /* Buttons */
+  --btn-primary-bg: #131a35;
+  --btn-primary-border: #5065f2;
+  --btn-primary-hover-bg: #374151;
+  --btn-primary-text: #ffffff;
+
+  /* Neon Gradients */
+  --gradient-1: linear-gradient(90deg, #7f00ff, #e100ff);
+  --gradient-2: linear-gradient(90deg, #00e5ff, #7f00ff);
+  --gradient-3: linear-gradient(90deg, #ffae33, #ff4ecd);
+
+  /* Icons / Accents */
+  --accent-pink: #ff4ecd;
+  --accent-cyan: #00e5ff;
+  --accent-orange: #ffae33;
+  --accent-green: #00f7a5;
+  --accent-purple: #c792ea;
+  --accent-blue: #82aaff;
+  --accent-yellow: #ffeb95;
+  --accent-red: #ff5c57;
+  --accent-gold: #ffcc66;
+
+  /* Borders */
+  --border-glow: 0 0 10px rgba(80, 101, 242, 0.6);
+
+  --accent-purple-alpha: rgba(127, 0, 255, 0.3);
+  --accent-pink-alpha: rgba(255, 78, 205, 0.2);
+  --accent-blue-alpha: rgba(78, 161, 255, 0.2);
+}
+
+body {
+  min-height: 100dvh; /* mobile safe viewport height */
+  margin: 0;
+  font: 400 16px/1.5 Segoe UI, Roboto, sans-serif;
+  background: var(--bg-main, #0a0f1c);
+  color: var(--text-primary, #fff);
+}
+
+/* 2. Make the React root a flex column so footers stick to bottom */
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 4. Media scale properly */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 6. Comfortable section padding that scales with screen size */
+.section {
+  padding-block: clamp(2rem, 4vw, 4rem);
+}
+
+.main-text {
+  color: var(--text-primary);
+}
+
+.secondary-text {
+  color: var(--text-secondary);
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  min-height: 200px;
+  margin-bottom: 1em;
+  align-items: center;
+  padding-left: 3em;
+  background: transparent;
+}
+
+.footer {
+  display: block;
+  width: 100%;
+  margin-top: 2em;
+  padding: 2em;
+}
+
+.navbar {
+  color: var(--text-primary);
+  display: flex;
+  flex: 1;
+  height: 80px;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  font-weight: 600;
+  font-size: 22px;
+  position: absolute;
+  top: 2.5rem;
+  right: 10%;
+  min-width: 325px;
+  border-radius: 6px;
+
+  background: var(--bg-transparent); /* semi-transparent white */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  border: 1px solid var(--bg-secondary);
+  z-index: 100;
+}
+
+@media (max-width: 750px) {
+  .navbar {
+    flex-direction: column;
+    min-width: 100px;
+    font-size: 20px;
+  }
+}
+
+.footerBar {
+  background-color: var(--bg-transparent);
+  color: var(--text-primary);
+  display: flex;
+  flex: 1;
+  min-height: 80px;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.animated-border {
+  border: 1px solid var(--btn-primary-border);
+  border-radius: 4px;
+  animation: borderPulse 6s linear infinite;
+}
+
+.animated-divider {
+  border-width: 0.5px;
+  animation: dividerPulse 20s linear infinite;
+}
+
+@keyframes borderPulse {
+  0% {
+    border-color: var(--accent-cyan);
+  }
+  25% {
+    border-color: var(--accent-green);
+  }
+  50% {
+    border-color: var(--accent-orange);
+  }
+  75% {
+    border-color: var(--accent-pink);
+  }
+  100% {
+    border-color: var(--accent-cyan);
+  }
+}
+
+@keyframes dividerPulse {
+  0% {
+    border-color: var(--accent-cyan);
+  }
+  33% {
+    border-color: var(--accent-purple);
+  }
+  66% {
+    border-color: var(--accent-pink);
+  }
+  100% {
+    border-color: var(--accent-cyan);
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-bg {
+  min-height: 100vh;
+  background: linear-gradient(
+    120deg,
+    var(--bg-main),
+    var(--accent-orange),
+    var(--bg-main)
+  );
+  background-size: 300% 300%;
+  animation: gradientShift 300s linear infinite;
+  position: relative;
+}
+
+.bg-glow {
+  box-shadow: 10px 10px 20px var(--accent-blue-alpha),
+    5px 5px 40px var(--accent-pink-alpha);
+}
+.nav-glow {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1),
+    5px 5px 20px var(--accent-pink-alpha), 3px 3px 40px var(--accent-blue-alpha);
+}
+
+.img-glow {
+  filter: drop-shadow(2px 2px 3px var(--accent-blue));
+}
