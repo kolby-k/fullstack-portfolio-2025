@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, useNavigate } from "react-router";
 import Home from "./routes/Home";
 import NotFound from "./routes/NotFound";
 import NavBar from "./components/NavBar";
@@ -8,14 +8,17 @@ import Footer from "./components/Footer";
 import ThemeToggle from "./components/ThemeToggle";
 
 function App() {
+  const nav = useNavigate();
+
   return (
     <>
       <header className="header">
         <img
           src="/logo.png"
-          width={60}
-          height={60}
-          className="ml-4-mt-4 img-glow"
+          width={70}
+          height={70}
+          className="ml-10 -mt-8 img-glow cursor-pointer"
+          onClick={() => nav("/")}
         />
         <NavBar />
         <span className="absolute right-[2%] top-6">

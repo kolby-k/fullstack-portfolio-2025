@@ -57,6 +57,17 @@ html {
   --accent-purple-alpha: rgba(127, 0, 255, 0.8);
   --accent-pink-alpha: rgba(255, 78, 205, 0.7);
   --accent-blue-alpha: rgba(78, 161, 255, 0.7);
+
+  background: linear-gradient(
+    -45deg,
+    rgb(var(--bg-main) / 0.5) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgb(var(--accent-gold) / 0.5) 50%,
+    rgb(var(--accent-green) / 0.5) 75%,
+    transparent 75%,
+    transparent 100%
+  );
 }
 
 .dark {
@@ -204,12 +215,6 @@ canvas {
   border-radius: 4px;
   animation: borderPulse 6s linear infinite;
 }
-
-.animated-divider {
-  border-width: 0.5px;
-  animation: dividerPulse 20s linear infinite;
-}
-
 @keyframes borderPulse {
   0% {
     border-color: var(--accent-cyan);
@@ -228,6 +233,10 @@ canvas {
   }
 }
 
+.animated-divider {
+  border-width: 0.5px;
+  animation: dividerPulse 20s linear infinite;
+}
 @keyframes dividerPulse {
   0% {
     border-color: var(--accent-cyan);
@@ -243,18 +252,6 @@ canvas {
   }
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
 .animated-bg {
   min-height: 100vh;
   background: linear-gradient(
@@ -267,6 +264,17 @@ canvas {
   animation: gradientShift 300s linear infinite;
   position: relative;
 }
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
 .bg-glow {
   box-shadow: 10px 10px 20px var(--accent-blue-alpha),
@@ -277,6 +285,7 @@ canvas {
     5px 5px 20px var(--accent-pink-alpha), 3px 3px 40px var(--accent-blue-alpha);
 }
 
+/* glow for logo image */
 .img-glow {
   filter: drop-shadow(2px 2px 3px var(--accent-blue));
 }

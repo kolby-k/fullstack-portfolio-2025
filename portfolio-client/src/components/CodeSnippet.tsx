@@ -74,7 +74,7 @@ function CodeSnippet() {
   };
 
   return (
-    <figure className="relative group max-w-[600px] ">
+    <figure className="relative group max-w-[600px]">
       <button
         onClick={handleCopy}
         className="cursor-pointer absolute right-3 top-3 px-2 py-1 text-xs rounded border border-neutral-600 text-neutral-200 bg-neutral-800/70 backdrop-blur hover:bg-neutral-700"
@@ -83,7 +83,7 @@ function CodeSnippet() {
         Copy
       </button>
 
-      <div className="flex flex-1 border border-neutral-600 rounded-md bg-neutral-900 overflow-x-auto bg-glow">
+      <div className="flex flex-1 border border-neutral-600 animated-divider rounded-md bg-neutral-900 overflow-x-auto bg-glow">
         <div className="flex w-full">
           {/* Line numbers */}
           <ol className="select-none text-neutral-500 text-xs px-3 py-4 text-right tabular-nums leading-6 border-r border-neutral-800">
