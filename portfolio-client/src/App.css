@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 6px;
+  border-radius: inherit;
   padding: 1em 2em;
   font-weight: 600;
   font-size: 1.1em;

@@ -28,12 +28,18 @@ html {
   --text-secondary: #4a5165; /* muted gray-blue */
   --text-accent: #ff8c00; /* warm orange accent */
   --text-highlight: #007acc; /* vivid blue highlight */
+  --text-inverted: #faf6f6;
 
   /* Buttons */
-  --btn-primary-bg: #e5e7eb; /* pale blue background */
+  --btn-primary-bg: #eceef2; /* pale blue background */
   --btn-primary-border: #5065f2; /* same blue as dark theme border */
-  --btn-primary-hover-bg: #e0e6f6;
+  --btn-primary-hover-bg: #ffffff;
   --btn-primary-text: #0a0f1c; /* dark text for readability */
+
+  /* Tags */
+  --tag-bg-blue: rgba(78, 161, 255, 0.3);
+  --tag-border-blue: rgba(78, 161, 255, 0.4);
+  --tag-text-blue: #147ba1;
 
   /* Neon Gradients */
   --gradient-1: linear-gradient(90deg, #9a4dff, #e56cff);
@@ -58,16 +64,8 @@ html {
   --accent-pink-alpha: rgba(255, 78, 205, 0.7);
   --accent-blue-alpha: rgba(78, 161, 255, 0.7);
 
-  background: linear-gradient(
-    -45deg,
-    rgb(var(--bg-main) / 0.5) 25%,
-    transparent 25%,
-    transparent 50%,
-    rgb(var(--accent-gold) / 0.5) 50%,
-    rgb(var(--accent-green) / 0.5) 75%,
-    transparent 75%,
-    transparent 100%
-  );
+  --project-border: #3d58f228;
+  --project-bg: #eceef2;
 }
 
 .dark {
@@ -81,12 +79,18 @@ html {
   --text-secondary: #c0c6d4;
   --text-accent: #ffae33;
   --text-highlight: #00e5ff;
+  --text-inverted: #000000;
 
   /* Buttons */
   --btn-primary-bg: #131a35;
   --btn-primary-border: #5065f2;
-  --btn-primary-hover-bg: #374151;
+  --btn-primary-hover-bg: #19191b;
   --btn-primary-text: #ffffff;
+
+  /* Tags */
+  --tag-bg-blue: rgba(78, 161, 255, 0.2);
+  --tag-border-blue: rgba(78, 161, 255, 0.2);
+  --tag-text-blue: #00e5ff;
 
   /* Neon Gradients */
   --gradient-1: linear-gradient(90deg, #7f00ff, #e100ff);
@@ -110,6 +114,9 @@ html {
   --accent-purple-alpha: rgba(127, 0, 255, 0.3);
   --accent-pink-alpha: rgba(255, 78, 205, 0.2);
   --accent-blue-alpha: rgba(78, 161, 255, 0.2);
+
+  --project-border: #69709728;
+  --project-bg: #17181cc6;
 }
 
 body {
@@ -288,4 +295,26 @@ canvas {
 /* glow for logo image */
 .img-glow {
   filter: drop-shadow(2px 2px 3px var(--accent-blue));
+}
+
+.project-glow {
+  position: relative; /* Needed for absolute positioning of pseudos */
+}
+
+.project-glow::before,
+.project-glow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  opacity: 15%;
+  border-radius: inherit;
+}
+
+.project-glow::after {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), 5px 5px 20px var(--accent-blue),
+    3px 3px 40px var(--accent-purple);
 }

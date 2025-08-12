@@ -1,7 +1,7 @@
-function CustomTag() {
+function CustomTag({ label = "Tag 1" }: { label?: string }) {
   return (
-    <div className="flex font-light border-1 p-2 rounded-xl bg-neutral-600 text-neutral-100">
-      Tag 1
+    <div className="flex text-sm border-1 border-(--tag-border-blue) p-2 rounded-lg bg-(--tag-bg-blue) text-(--tag-text-blue)">
+      {label}
     </div>
   );
 }

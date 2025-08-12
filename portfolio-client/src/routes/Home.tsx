@@ -8,7 +8,9 @@ function Home() {
       <HeroSection />
       <hr className="animated-divider mt-16 w-5/6 mx-auto" />
       <SkillSection />
+      <hr className="animated-divider mt-16 w-5/6 mx-auto" />
       <ProjectSection />
+      <hr className="animated-divider mt-16 w-7/8 mx-auto" />
     </div>
   );
 }
