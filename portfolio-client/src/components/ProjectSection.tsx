@@ -8,8 +8,7 @@ const PROJECTS = [
     imageSrc: "/src/assets/evolve-ios-app.png",
     appRedirectUrl: "/evolve-workout-tracker-ios",
     tagList: ["Expo", "Node.js", "PostgreSQL"],
-    projectUrl:
-      "https://apps.apple.com/us/app/evolve-workout-tracker/id6738889804",
+    projectUrl: "https://evolve-app.ca",
   },
   {
     title: "Summarizer",
@@ -45,10 +44,10 @@ function ProjectSection() {
     <div className="flex flex-col flex-1 justify-between items-center p-4 min-h-[500px] mt-10">
       <div className="w-3/4 h-80 flex justify-evenly items-center">
         <span className="self-start max-w-1/2 pt-10">
-          <h2 className="font-semibold text-5xl text-center my-2">
-            Recent Projects
+          <h2 className="font-semibold text-5xl text-(--text-primary) text-center my-2">
+            All Recent Projects
           </h2>
-          <p>
+          <p className="text-(--text-secondary)">
             Explore my latest work, from dynamic single-page applications to
             full-stack solutions and mobile apps.{" "}
           </p>
