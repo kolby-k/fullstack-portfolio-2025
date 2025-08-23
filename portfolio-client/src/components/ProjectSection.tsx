@@ -1,11 +1,16 @@
 import ProjectCard from "./ProjectCard";
+import EvolveProjectBannerImage from "../assets/evolve-ios-app.png";
+import SummarizerProjectBannerImage from "../assets/summarizer-app.png";
+import DevToolKitProjectBannerImage from "../assets/dev-toolkit-app.png";
+import WeatherProjectBannerImage from "../assets/weather-app.png";
+import Kolby3DImage from "../assets/kolby-3d.png";
 
 const PROJECTS = [
   {
     title: "Evolve Workout Tracker",
     description:
       "A Mobile iOS Application to log, workout history, helping users gain insights into performance and improve results.",
-    imageSrc: "/src/assets/evolve-ios-app.png",
+    imageSrc: EvolveProjectBannerImage,
     appRedirectUrl: "/evolve-workout-tracker-ios",
     tagList: ["Expo", "Node.js", "PostgreSQL"],
     projectUrl: "https://evolve-app.ca",
@@ -14,7 +19,7 @@ const PROJECTS = [
     title: "Summarizer",
     description:
       "A full-stack web application that generates real-time summaries of online articles using the OpenAI API.",
-    imageSrc: "/src/assets/summarizer-app.png",
+    imageSrc: SummarizerProjectBannerImage,
     appRedirectUrl: "/summarizer-app",
     tagList: ["React", "Node.js", "Express.js"],
     projectUrl: "https://summarizer-io.netlify.app/",
@@ -23,7 +28,7 @@ const PROJECTS = [
     title: "Developer Toolkit",
     description:
       "A client-side web application that provides developers with a variety of common tools to aid in fullstack development.",
-    imageSrc: "/src/assets/dev-toolkit-app.png",
+    imageSrc: DevToolKitProjectBannerImage,
     appRedirectUrl: "/dev-toolkit-app",
     tagList: ["React", "CSS", "JavaScript"],
     projectUrl: "https://developer-toolkit.netlify.app/",
@@ -32,7 +37,7 @@ const PROJECTS = [
     title: "What The Temp",
     description:
       "A client-side weather app that provides real-time local forecasts with a clean, user-friendly interface.",
-    imageSrc: "/src/assets/weather-app.png",
+    imageSrc: WeatherProjectBannerImage,
     appRedirectUrl: "/what-the-temp-app",
     tagList: ["React", "CSS", "API Integration"],
     projectUrl: "https://what-the-temp.netlify.app/",
@@ -53,11 +58,7 @@ function ProjectSection() {
           </p>
           <hr className="animated-divider mt-10 w-1/2" />
         </span>
-        <img
-          src="/src/assets/kolby-3d.png"
-          width={275}
-          className="rotate-y-180"
-        />
+        <img src={Kolby3DImage} width={275} className="rotate-y-180" />
       </div>
 
       <div className="flex flex-wrap flex-1 justify-evenly items-start p-4 mt-8 gap-12">
