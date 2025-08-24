@@ -15,22 +15,30 @@ export type ProjectCardProps = {
 
 function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="w-120 h-120 flex flex-col border-1 border-(--project-border) bg-(--project-bg) rounded-xl cursor-pointer p-4 project-glow hover:bg-(--btn-primary-hover-bg) hover:scale-102">
-      <a href={project.projectUrl} target="_blank">
-        <span className="flex flex-1 justify-evenly flex-col gap-2">
-          <img src={project.imageSrc} height={100} className="flex" />
-          <h3 className="font-medium text-xl text-(--text-primary)">
+    <div className="h-120 w-120 overflow-clip card  project-glow">
+      <a
+        href={project.projectUrl}
+        className="flex flex-1 flex-col gap-4 min-h-full cursor-pointer"
+        target="_blank"
+      >
+        <div className="flex justify-center items-center h-60">
+          <img src={project.imageSrc} width={480} className="rounded-sm" />
+        </div>
+
+        <div className="flex flex-1 flex-col">
+          <h3 className="font-semibold text-xl text-(--text-primary) p-2">
             {project.title}
           </h3>
-          <p className="font-normal text-base w-5/6 text-(--text-secondary)">
+          <p className="font-normal text-base w-5/6 text-(--text-secondary) p-2">
             {project.description}
           </p>
-        </span>
-        <span className="flex flex-wrap items-center justify-evenly m-4">
-          {project.tagList.map((tag, idx) => (
-            <CustomTag key={`project-tag-${idx}`} label={tag} />
-          ))}
-        </span>
+
+          <span className="flex items-center justify-evenly my-4">
+            {project.tagList.map((tag, idx) => (
+              <CustomTag key={`project-tag-${idx}`} label={tag} />
+            ))}
+          </span>
+        </div>
       </a>
     </div>
   );

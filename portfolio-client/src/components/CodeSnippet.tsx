@@ -1,4 +1,8 @@
+import { useState, type ChangeEvent } from "react";
+
 function CodeSnippet() {
+  const [firstName, setFirstName] = useState<string | null>(null);
+
   const code = [
     <>
       <span className="code-keyword">function</span>{" "}
@@ -21,8 +25,8 @@ function CodeSnippet() {
     <> {"}"}</>,
     <>
       {"  "}
-      <span className="code-keyword">return</span> console.
-      <span className="code-method">log</span>(
+      <span className="code-keyword">return</span> window.
+      <span className="code-method">alert</span>(
       <span className="code-string">`Hello, </span>${"{"}firstName
       {"}"}
       <span className="code-string">`</span>);
@@ -34,7 +38,7 @@ function CodeSnippet() {
     <>
       {""}
       <span className="code-function">welcomeUser</span>(
-      <span className="code-string">"Jim"</span>
+      <span className="code-string">"{firstName}"</span>
       );
     </>,
   ];
@@ -44,10 +48,10 @@ function CodeSnippet() {
       "  if (!firstName?.trim()) {",
       "    throw new Error('firstName is required');",
       "  }",
-      "  return console.log(`Hello, ${firstName}`);",
+      "  return window.alert(`Hello, ${firstName}`);",
       "}",
       "",
-      'welcomeUser("Jim");',
+      `welcomeUser("${firstName}");`,
     ].join("\n");
 
     try {
@@ -73,38 +77,62 @@ function CodeSnippet() {
     }
   };
 
+  const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFirstName(e.target.value);
+  };
+
   return (
-    <figure className="relative group max-w-[600px]">
-      <button
-        onClick={handleCopy}
-        className="cursor-pointer absolute right-3 top-3 px-2 py-1 text-xs rounded border border-neutral-600 text-neutral-200 bg-neutral-800/70 backdrop-blur hover:bg-neutral-700"
-        aria-label="Copy code"
-      >
-        Copy
-      </button>
+    <div className="max-w-[600px]">
+      <figure className="relative group ">
+        <button
+          onClick={handleCopy}
+          className="cursor-pointer absolute right-3 top-3 px-2 py-1 text-xs rounded border border-neutral-600 text-neutral-200 bg-neutral-800/70 backdrop-blur hover:bg-neutral-700"
+          aria-label="Copy code"
+        >
+          Copy
+        </button>
 
-      <div className="flex flex-1 border border-neutral-600 animated-divider rounded-md bg-neutral-900 overflow-x-auto bg-glow">
-        <div className="flex w-full">
-          {/* Line numbers */}
-          <ol className="select-none text-neutral-500 text-xs px-3 py-4 text-right tabular-nums leading-6 border-r border-neutral-800">
-            {code.map((_, i) => (
-              <li key={i} className="list-none">
-                {i + 1}
-              </li>
-            ))}
-          </ol>
+        <div className="flex flex-1 border border-neutral-600 animated-divider rounded-md bg-neutral-900 overflow-x-auto bg-glow">
+          <div className="flex w-full">
+            {/* Line numbers */}
+            <ol className="select-none text-neutral-500 text-xs px-3 py-4 text-right tabular-nums leading-6 border-r border-neutral-800">
+              {code.map((_, i) => (
+                <li key={i} className="list-none">
+                  {i + 1}
+                </li>
+              ))}
+            </ol>
 
-          {/* Code lines */}
-          <pre className="font-mono text-sm leading-6 text-neutral-200 px-4 py-4 min-w-0">
-            {code.map((line, i) => (
-              <code key={i} className="block">
-                {line}
-              </code>
-            ))}
-          </pre>
+            {/* Code lines */}
+            <pre className="font-mono text-sm leading-6 text-neutral-200 px-4 py-4 min-w-0">
+              {code.map((line, i) => (
+                <code key={i} className="block">
+                  {line}
+                </code>
+              ))}
+            </pre>
+          </div>
         </div>
+      </figure>
+      <div className="flex  mt-8 -mb-8 pb-2 justify-center items-center gap-2 relative">
+        <input
+          type="text"
+          id="firstName"
+          value={firstName ?? ""}
+          onChange={handleNameChange}
+          className="theme-input"
+          placeholder="First Name"
+        />
+        {firstName && (
+          <span
+            className="px-4 py-2 main-btn"
+            onClick={() => window.alert(`Welcome, ${firstName}`)}
+          >
+            Welcome 👋
+          </span>
+        )}
       </div>
-    </figure>
+    </div>
   );
 }
 

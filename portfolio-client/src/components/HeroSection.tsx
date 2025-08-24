@@ -22,6 +22,7 @@ function HeroSection() {
             <CustomButton
               label="Get in touch"
               onClick={handleContactRedirect}
+              size="medium"
             />
           </span>
         </span>

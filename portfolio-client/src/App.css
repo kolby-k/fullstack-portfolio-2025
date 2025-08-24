@@ -1,24 +1,5 @@
 @import "tailwindcss";
 
-.theme-btn {
-  color: var(--text-primary);
-  background-color: var(--btn-primary-bg);
-  border: 1px solid var(--btn-primary-border);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: inherit;
-  padding: 1em 2em;
-  font-weight: 600;
-  font-size: 1.1em;
-  cursor: pointer;
-}
-
-.theme-btn:hover {
-  background-color: var(--btn-primary-hover-bg);
-  border-color: var(--accent-green);
-}
-
 /* Functions / Methods */
 .code-function {
   color: var(--accent-gold);

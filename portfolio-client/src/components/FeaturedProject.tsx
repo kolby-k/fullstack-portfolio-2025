@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import appImage from "../assets/evolve-ios-app.png";
 import evolveMobileImage from "../assets/single-tracking.png";
+import CustomButton from "./CustomButton";
+import CustomTag from "./CustomTag";
 
 export type FeaturedProjectProps = {
   title?: string;
@@ -18,12 +20,11 @@ const defaultProps: Required<FeaturedProjectProps> = {
   title: "Evolve Workout Tracker",
   tagline: "Built with React Native (Expo), Node/Express, and Postgres",
   description:
-    "From database to UI, I built this mobile fitness app ground-up—and I use it every week to track my workouts and improve my performance in the gym.",
+    "From database to UI, I built this mobile fitness app from the ground-up—and I use it weekly to track my workouts and improve performance in the gym.",
   stack: [
-    "React Native",
-    "Expo",
+    "React Native/Expo",
     "Redux Toolkit",
-    "Node/Express",
+    "Node/Express.js",
     "PostgreSQL",
   ],
   actions: [
@@ -83,12 +84,7 @@ export default function FeaturedProject(p: FeaturedProjectProps) {
             {/* Stack chips */}
             <div className="mb-8 flex flex-wrap gap-2">
               {stack.map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full border border-(--tag-border-blue) bg-(--tag-bg-blue) text-(--tag-text-blue) px-3 py-1 text-xs shadow-[0_0_20px_-6px_rgba(56,189,248,.6)]"
-                >
-                  {t}
-                </span>
+                <CustomTag key={t} label={t} size="small" />
               ))}
             </div>
 
@@ -166,16 +162,16 @@ export default function FeaturedProject(p: FeaturedProjectProps) {
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
           {[
             {
-              title: "PostgreSQL Database",
-              body: "Backed by PostgreSQL with a normalized schema and optimized indexes for fast, reliable queries.",
+              title: "Website",
+              body: "Designed and built a fast, single-page React site. It includes pricing information, an FAQ section, and clear calls-to-action.",
             },
             {
-              title: "Secure Auth & Billing",
-              body: "Short-lived JWT access with longer lived refresh tokens, plus Apple IAP receipt verification and server-side subscription checks.",
+              title: "iOS Mobile App",
+              body: "Built the core workout-tracking app with React Native (Expo), integrating Sign in with Apple (OAuth) and JWT-authenticated requests to my Express + PostgreSQL backend.",
             },
             {
-              title: "Observability & Analytics",
-              body: "Structured logging, error monitoring, and a custom admin dashboard for usage, retention, and revenue insights.",
+              title: "Admin Dashboard",
+              body: "Developed a secure, authentication-gated admin dashboard with interactive charts and data tables to monitor usage and key KPIs for the mobile app.",
             },
           ].map((item) => (
             <div
@@ -199,42 +195,26 @@ function CTA({
   href,
   variant = "primary",
 }: Required<FeaturedProjectProps>["actions"][number]) {
-  const base =
-    "relative inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400/60";
-
   if (variant === "primary") {
     return (
-      <a
-        href={href}
-        target="_blank"
-        className={`${base} border border-(--btn-primary-border) bg-(--btn-primary-bg) text-(--btn-primary-text) hover:bg-(--btn-primary-hover-bg) hover:text-(--btn-primary-hover-text) shadow-[0_10px_30px_-12px_rgba(56,189,248,.6)]`}
-      >
-        <span className="absolute inset-0 rounded-xl ring-1 ring-inset ring-white/10" />
-        <span className="relative">{label}</span>
+      <a href={href} target="_blank">
+        <CustomButton label={label} variant="primary" />
       </a>
     );
   }
 
   if (variant === "outline") {
     return (
-      <a
-        href={href}
-        target="_blank"
-        className={`${base} border border-(--tag-border-blue) bg-(--tag-bg-blue) text-(--tag-text-blue) hover:bg-(--tag-border-blue) hover:text-(--btn-primary-hover-text)`}
-      >
-        {label}
+      <a href={href} target="_blank">
+        <CustomButton label={label} variant="outline" />
       </a>
     );
   }
 
   // ghost
   return (
-    <a
-      href={href}
-      className={`${base} text-(--text-primary) hover:text-(--text-secondary)`}
-      target="_blank"
-    >
-      {label}
+    <a href={href} target="_blank">
+      <CustomButton label={label} variant="ghost" />
     </a>
   );
 }
