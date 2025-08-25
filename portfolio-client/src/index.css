@@ -165,13 +165,28 @@ body {
   font: 400 16px/1.5 Segoe UI, Roboto, sans-serif;
   background: var(--bg-main, #0a0f1c);
   color: var(--text-primary, #fff);
+  width: 100dvw;
+  overflow-x: hidden;
 }
 
 /* 2. Make the React root a flex column so footers stick to bottom */
 #root {
-  min-height: 100%;
+  flex: 1; /* take available vertical space */
   display: flex;
   flex-direction: column;
+}
+
+main {
+  flex: 1 1 auto; /* fill remaining height for a sticky-footer effect */
+  min-height: 0; /* critical when main has internal scrollable content */
+  min-width: 0; /* prevent flex overflow from wide children */
+  display: flex; /* optional: if you want column layout inside main */
+  flex-direction: column;
+}
+
+.container {
+  width: min(1550px, 100% - 2rem);
+  margin-inline: auto;
 }
 
 .main-btn {
@@ -182,11 +197,11 @@ body {
   border-radius: 6px;
   cursor: pointer;
   color: var(--btn-primary-text);
-  padding: 0.5em 1em;
+  padding: 0.5rem 1rem;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 1rem;
   cursor: pointer;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.01rem;
 }
 
 .main-btn:hover {
@@ -208,8 +223,8 @@ body {
 
 .medium-btn {
   border-radius: inherit;
-  padding: 1em 2em;
-  font-size: 1.1em;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
 }
 
 .outline-btn {
@@ -227,11 +242,11 @@ body {
   display: flex;
   justify-content: center;
   cursor: pointer;
-  padding: 0.5em 1em;
+  padding: 0.5rem 1rem;
   font-weight: 600;
-  font-size: 1em;
+  font-size: 1rem;
   cursor: pointer;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.01rem;
   color: var(--text-secondary);
 }
 
@@ -328,48 +343,91 @@ canvas {
 .header {
   display: flex;
   width: 100%;
-  min-height: 200px;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
   align-items: center;
-  padding-left: 3em;
+  padding-left: 3rem;
   background: transparent;
 }
 
 .footer {
   display: block;
   width: 100%;
-  margin-top: 2em;
-  padding: 2em;
+  margin-top: 2rem;
+  padding: 2rem;
 }
 
-.navbar {
+.nav-glow {
   color: var(--text-primary);
-  display: flex;
-  flex: 1;
-  height: 80px;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
   font-weight: 600;
   font-size: 22px;
-  position: absolute;
+  border-radius: 12px;
+  background: var(--bg-transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--bg-secondary);
+  box-shadow: 0 0 40px rgba(80, 101, 242, 0.18);
+}
+
+/* Desktop bar (your original) */
+.navbar {
+  display: flex;
+  gap: 0.75rem;
+  height: 64px; /* a bit shorter = nicer on desktop */
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute; /* if you truly want it floating */
   top: 2.5rem;
   right: 10%;
   min-width: 325px;
-  border-radius: 6px;
-
-  background: var(--bg-transparent); /* semi-transparent white */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Safari support */
-  border: 1px solid var(--bg-secondary);
+  padding: 0 0.5rem;
   z-index: 100;
 }
 
-@media (max-width: 750px) {
+/* Links: ensure touch targets ≥ 44px */
+.navbar a {
+  line-height: 1;
+  padding: 0.5rem 0.75rem; /* plus the container height gives big hits */
+  border-radius: 10px;
+}
+
+.navbar a:hover {
+  text-decoration: none;
+}
+
+@media (min-width: 768px) {
   .navbar {
-    flex-direction: column;
-    min-width: 100px;
-    font-size: 20px;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 22px;
+    border-radius: 12px;
+    background: var(--bg-transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--bg-secondary);
+    box-shadow: 0 0 40px rgba(80, 101, 242, 0.18);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: min(10%, 120px);
+    height: 84px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 100;
+    gap: 0.25rem;
+    font-size: 19px;
+    font-weight: 600;
+  }
+
+  .navbar a {
+    padding: 0.25rem 0.5rem;
   }
 }
 

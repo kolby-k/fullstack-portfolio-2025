@@ -11,7 +11,7 @@ const PROJECTS = [
       "A full-stack web application that generates real-time summaries of online articles using the OpenAI API.",
     imageSrc: SummarizerProjectBannerImage,
     appRedirectUrl: "/summarizer-app",
-    tagList: ["OpenAI API", "Prompt Engineering", "Express API"],
+    tagList: ["OpenAI API", "Rate Limiting", "Express API"],
     projectUrl: "https://summarizer-io.netlify.app/",
   },
   {
@@ -20,7 +20,7 @@ const PROJECTS = [
       "A client-side web application that provides developers with a variety of common tools to aid in fullstack development.",
     imageSrc: DevToolKitProjectBannerImage,
     appRedirectUrl: "/dev-toolkit-app",
-    tagList: ["DOM APIs", "Algorithm Design", "TypeScript"],
+    tagList: ["DOM APIs", "Algorithms", "TypeScript"],
     projectUrl: "https://developer-toolkit.netlify.app/",
   },
   {
@@ -29,29 +29,32 @@ const PROJECTS = [
       "A client-side weather app that provides real-time local forecasts with a clean, user-friendly interface.",
     imageSrc: WeatherProjectBannerImage,
     appRedirectUrl: "/what-the-temp-app",
-    tagList: ["Responseive UI", "REST API", "Caching"],
+    tagList: ["Responsive UI", "REST API", "Caching"],
     projectUrl: "https://what-the-temp.netlify.app/",
   },
 ];
 
 function ProjectSection() {
   return (
-    <div className="flex flex-col justify-between items-center p-4 mt-8">
-      <div className="w-3/4 flex justify-evenly items-center">
-        <span className="self-start max-w-1/2 pt-10">
+    <div className="flex flex-col justify-between items-center mt-8">
+      <div className="flex flex-wrap justify-evenly items-center md:gap-12 relative">
+        <span className="self-start max-w-[500px] md:pt-10">
           <h2 className="font-semibold text-5xl text-(--text-primary) text-center my-2">
-            More Recent Projects
+            Recent Projects
           </h2>
-          <p className="text-(--text-secondary)">
-            Explore my latest work, from dynamic single-page applications to
-            full-stack solutions and mobile apps.{" "}
+          <p className="text-lg text-(--text-secondary) text-left pl-2">
+            Explore more of my work — from modern single-page web apps to
+            scalable full-stack solutions.
           </p>
-          <hr className="animated-divider mt-10 w-1/2" />
+          <hr className="animated-divider mt-10 hidden md:flex  " />
         </span>
-        <img src={Kolby3DImage} width={275} className="rotate-y-180" />
+        <img
+          src={Kolby3DImage}
+          className="rotate-y-180 w-52 md:w-72 md:relative md:top-0 md:right-0"
+        />
       </div>
 
-      <div className="flex flex-wrap justify-evenly items-start p-4 mt-8 gap-12">
+      <div className="flex flex-1 flex-wrap justify-evenly items-start p-4 md:mt-8 gap-10">
         {PROJECTS.map((project) => (
           <ProjectCard
             key={`project-${project.appRedirectUrl}`}

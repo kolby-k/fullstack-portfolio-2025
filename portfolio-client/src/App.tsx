@@ -12,20 +12,20 @@ function App() {
 
   return (
     <>
-      <header className="header">
+      <header className="header h-28 md:h-48">
         <img
           src="/logo.png"
           width={70}
           height={70}
-          className="ml-10 -mt-8 img-glow cursor-pointer"
+          className="absolute left-10 top-2 md:top-8 img-glow cursor-pointer"
           onClick={() => nav("/")}
         />
         <NavBar />
-        <span className="absolute right-[2%] top-6">
+        <span className="absolute right-10 md:right-[2%] top-8">
           <ThemeToggle />
         </span>
       </header>
-      <main className="flex-1">
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />

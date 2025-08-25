@@ -27,7 +27,7 @@ function CodeSnippet() {
       {"  "}
       <span className="code-keyword">return</span> window.
       <span className="code-method">alert</span>(
-      <span className="code-string">`Hello, </span>${"{"}firstName
+      <span className="code-string">`Welcome, </span>${"{"}firstName
       {"}"}
       <span className="code-string">`</span>);
     </>,
@@ -48,7 +48,7 @@ function CodeSnippet() {
       "  if (!firstName?.trim()) {",
       "    throw new Error('firstName is required');",
       "  }",
-      "  return window.alert(`Hello, ${firstName}`);",
+      "  return window.alert(`Welcome, ${firstName}`);",
       "}",
       "",
       `welcomeUser("${firstName}");`,
@@ -82,7 +82,7 @@ function CodeSnippet() {
   };
 
   return (
-    <div className="max-w-[600px]">
+    <div className="w-[94dvw] md:w-155">
       <figure className="relative group ">
         <button
           onClick={handleCopy}
@@ -104,7 +104,7 @@ function CodeSnippet() {
             </ol>
 
             {/* Code lines */}
-            <pre className="font-mono text-sm leading-6 text-neutral-200 px-4 py-4 min-w-0">
+            <pre className="font-mono text-[13px] md:text-[15px] leading-6 text-neutral-200 pl-2 py-4">
               {code.map((line, i) => (
                 <code key={i} className="block">
                   {line}
