@@ -31,7 +31,7 @@ function SkillSection() {
           </li>
         </ul>
       </div>
-      <div className="flex h-[100] w-1/2 mx-auto my-4 md:w-[0.5px] p-[0.5px] md:my-0 bg-(--input-border) rounded-full"></div>
+      <div className="flex h-1 md:h-[300px] w-1/2 mx-auto my-4 md:w-[0.5px] p-[0.5px] bg-(--input-border) rounded-full"></div>
       <div className="flex flex-1 justify-between   flex-col p-4 gap-y-5">
         <span className="flex justify-evenly items-center -mb-2">
           <p className="text-3xl text-center text-(--text-primary)">
