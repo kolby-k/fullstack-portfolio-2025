@@ -23,7 +23,7 @@ function NavBar() {
     ));
 
   return (
-    <nav className="navbar" aria-label="Main">
+    <nav className="navbar nav-glow" aria-label="Main">
       {renderLinks()}
     </nav>
   );

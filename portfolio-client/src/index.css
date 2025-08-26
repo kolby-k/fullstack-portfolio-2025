@@ -31,13 +31,14 @@ html {
   --text-inverted: #faf6f6;
 
   /* Buttons */
-  --btn-primary-bg: #3f51b5; /* indigo 500 */
-  --btn-primary-bg-hover: #3949ab; /* indigo 600 */
-  --btn-primary-bg-active: #303f9f; /* indigo 700 */
-  --btn-primary-border: #2f3c95cc;
-  --btn-primary-border-hover: #28358acc;
-  --btn-primary-text: #ffffff;
-  --btn-primary-ring: #5c6bc066;
+  --btn-primary-bg: #8aabff; /* soft indigo-tinted light */
+  --btn-primary-bg-hover: #bdddffc6; /* slightly deeper */
+  --btn-primary-bg-active: #c2cfff; /* pressed state */
+  --btn-primary-border: #3e63dd40; /* indigo border, ~25% */
+  --btn-primary-border-hover: #9acbff; /* stronger border */
+  --btn-primary-text: #2445aa; /* deep indigo for text */
+  --btn-primary-ring: #3e63dd99; /* subtle indigo ring */
+  --btn-outline-text-hover: #252526;
 
   /* Tags */
   --tag-bg-blue: rgba(78, 161, 255, 0.3);
@@ -63,10 +64,10 @@ html {
   /* Borders */
   --border-glow: 0 0 6px rgba(80, 101, 242, 0.3);
 
-  --accent-purple-alpha: rgba(127, 0, 255, 0.8);
-  --accent-pink-alpha: rgba(255, 78, 205, 0.7);
-  --accent-blue-alpha: rgba(78, 161, 255, 0.7);
-  --accent-cyan-alpha: rgba(26, 200, 252, 0.7);
+  --accent-purple-alpha: rgba(127, 0, 255, 0.3);
+  --accent-pink-alpha: rgba(255, 78, 205, 0.3);
+  --accent-blue-alpha: rgba(78, 161, 255, 0.3);
+  --accent-cyan-alpha: rgba(26, 200, 252, 0.3);
 
   /* Input */
   --input-bg: #ffffff;
@@ -85,12 +86,12 @@ html {
   --project-border: #d0d0d5;
   --project-bg: #ffffff;
   --project-border-hover: #f0f2ff;
-  --project-bg-hover: #f3f4f6;
+  --project-bg-hover: #dfe7f8;
 
   --card-border: rgba(155, 201, 255, 0.4);
   --card-bg: #f3f4f6;
-  --card-border-hover: #a5b0f6;
-  --card-bg-hover: #ffffff;
+  --card-border-hover: #9acbff;
+  --card-bg-hover: #bdddffc6;
 }
 
 .dark {
@@ -112,8 +113,9 @@ html {
   --btn-primary-bg-active: #0b1226; /* darker */
   --btn-primary-border: #3e63dd80; /* indigo, 50% */
   --btn-primary-border-hover: #5a78ffcc;
-  --btn-primary-text: #ffffff;
+  --btn-primary-text: #8599fd;
   --btn-primary-ring: #6b86ffff;
+  --btn-outline-text-hover: #d5e3ff;
 
   /* Tags */
   --tag-bg-blue: rgba(78, 161, 255, 0.2);
@@ -233,8 +235,7 @@ main {
 }
 
 .medium-btn {
-  border-radius: inherit;
-  padding: 1rem 2rem;
+  padding: 0.75rem 1.2rem;
   font-size: 1.1rem;
 }
 
@@ -246,7 +247,8 @@ main {
 
 .outline-btn:hover {
   background-color: var(--tag-border-blue);
-  color: var(--btn-primary-hover-text);
+  color: var(--btn-outline-text-hover);
+  border: 1px solid var(--tag-border-blue);
 }
 
 .ghost-btn {
@@ -368,18 +370,6 @@ canvas {
   padding: 2rem;
 }
 
-.nav-glow {
-  color: var(--text-primary);
-  font-weight: 600;
-  font-size: 22px;
-  border-radius: 12px;
-  background: var(--bg-transparent);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid var(--bg-secondary);
-  box-shadow: 0 0 40px rgba(80, 101, 242, 0.18);
-}
-
 /* Desktop bar (your original) */
 .navbar {
   display: flex;
@@ -417,6 +407,19 @@ canvas {
     -webkit-backdrop-filter: blur(8px);
     border: 1px solid var(--bg-secondary);
     box-shadow: 0 0 40px rgba(80, 101, 242, 0.18);
+  }
+
+  .nav-glow {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 22px;
+    border-radius: 12px;
+    background: var(--bg-transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--bg-secondary);
+    box-shadow: 0 2px 20px var(--btn-primary-bg),
+      3px 6px 40px var(--accent-cyan-alpha);
   }
 }
 
@@ -526,9 +529,10 @@ canvas {
   box-shadow: 10px 10px 10px var(--accent-blue-alpha),
     5px 5px 20px var(--accent-cyan-alpha);
 }
-.nav-glow {
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1),
-    3px 3px 40px var(--accent-blue-alpha);
+
+.btn-glow {
+  box-shadow: 0 2px 20px var(--btn-primary-bg),
+    3px 6px 40px var(--accent-cyan-alpha);
 }
 
 /* glow for logo image */
@@ -553,8 +557,8 @@ canvas {
 
 .project-glow::after {
   z-index: 0; /* behind children, above background */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1),
-    3px 5px 20px var(--accent-blue-alpha);
+  box-shadow: 0 5px 10px var(--accent-cyan-alpha),
+    5px 8px 20px var(--accent-blue-alpha);
 }
 
 /* keep your content above the glow */
