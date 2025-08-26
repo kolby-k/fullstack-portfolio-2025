@@ -7,24 +7,14 @@ const skills = {
     icon: FaHtml5,
     description:
       "I enjoy the process of turning ideas into real applications — shaping how an app should look, feel, and flow so users get the most out of it. My frontend work focuses on creating responsive, modern interfaces where design and usability go hand in hand with performance.",
-    tags: [
-      "Web & Mobile Design",
-      "Responsive UI",
-      "Single-Page Applications",
-      "API Integration",
-    ],
+    tags: ["UI/UX Design", "React & Expo", "Responsive UI", "Accessibility"],
   },
   backend: {
     title: "Backend Development",
     icon: FaNodeJs,
     description:
       "What excites me about backend work is problem-solving: taking a simple idea for an API and evolving it into a system that solves real problems at scale. I enjoy designing backends that are secure, efficient, and able to grow alongside the product.",
-    tags: [
-      "REST APIs",
-      "Relational Databases",
-      "SQL",
-      "Authentication & Security",
-    ],
+    tags: ["REST APIs", "Auth & Security", "Server-Side Logic", "PostgreSQL"],
   },
 };
 

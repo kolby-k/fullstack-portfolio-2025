@@ -1,10 +1,10 @@
 function Contact() {
   return (
-    <div className="flex flex-1 min-h-[60vh] justify-center items-center flex-col">
+    <div className="flex flex-1 min-h-[60vh] justify-center items-center flex-col container">
       <h1>Contact Me</h1>
       <p>Reach out to me below!</p>
 
-      <h1 className="mt-10 text-4xl">SECTION COMING SOON </h1>
+      <h1 className="mt-10 text-3xl text-center">SECTION COMING SOON </h1>
     </div>
   );
 }
