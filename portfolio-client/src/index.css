@@ -84,8 +84,13 @@ html {
 
   --project-border: #d0d0d5;
   --project-bg: #ffffff;
-  --project-border-hover: #5065f2;
+  --project-border-hover: #f0f2ff;
   --project-bg-hover: #f3f4f6;
+
+  --card-border: rgba(155, 201, 255, 0.4);
+  --card-bg: #f3f4f6;
+  --card-border-hover: #a5b0f6;
+  --card-bg-hover: #ffffff;
 }
 
 .dark {
@@ -157,6 +162,11 @@ html {
   --project-bg: #17181cc6;
   --project-border-hover: #5065f2;
   --project-bg-hover: #424448c6;
+
+  --card-border: rgba(24, 42, 63, 0.2);
+  --card-bg: #17181cc6;
+  --card-border-hover: rgba(104, 172, 250, 0.55);
+  --card-bg-hover: rgba(104, 172, 250, 0.18);
 }
 
 body {
@@ -202,6 +212,7 @@ main {
   font-size: 1rem;
   cursor: pointer;
   letter-spacing: 0.01rem;
+  text-align: center;
 }
 
 .main-btn:hover {
@@ -303,9 +314,10 @@ main {
 }
 
 .card {
+  display: block;
   padding: 20px;
-  border: 1px solid var(--project-border);
-  background-color: var(--project-bg);
+  border: 1px solid var(--card-border);
+  background-color: var(--card-bg);
   border-radius: 16px;
   color: var(--text-primary);
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease,
@@ -314,8 +326,8 @@ main {
 
 .card:hover {
   transform: translateY(-6px);
-  border-color: var(--project-border-hover);
-  background-color: var(--project-bg-hover);
+  border-color: var(--card-border-hover);
+  background-color: var(--card-bg-hover);
 }
 
 /* 4. Media scale properly */
@@ -541,12 +553,18 @@ canvas {
 
 .project-glow::after {
   z-index: 0; /* behind children, above background */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1),
-    3px 3px 20px var(--accent-blue-alpha);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1),
+    3px 5px 20px var(--accent-blue-alpha);
 }
 
 /* keep your content above the glow */
 .project-glow > * {
   position: relative;
   z-index: 1;
+}
+
+@media (max-width: 350px) {
+  .xs-hidden {
+    display: none;
+  }
 }

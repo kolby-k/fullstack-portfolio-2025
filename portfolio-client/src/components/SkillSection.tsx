@@ -4,52 +4,59 @@ import CustomTag from "./CustomTag";
 function SkillSection() {
   return (
     <div className="flex flex-col md:flex-row flex-1 mx-auto justify-evenly mt-4 md:mt-10 relative">
-      <div className="flex flex-1 justify-between   flex-col p-4 gap-y-5">
+      <div className="flex flex-1 justify-between flex-col p-4 gap-y-5">
         <span className="flex justify-evenly items-center -mb-2">
           <p className="text-3xl text-center text-(--text-primary)">
             Frontend Development
           </p>
-          <FaHtml5 size={42} />
+          <FaHtml5 size={42} className="p-2" />
         </span>
         <p className="px-4 mx-auto text-lg text-(--text-secondary)">
           I build modern, responsive interfaces for both web and iOS apps using
-          React and Expo (React Native), with a focus on design, accessibility,
-          and performance.
+          React and Expo (React Native), with a focus on design, user
+          experience, and performance.
         </p>
-        <ul className="flex flex-1 justify-evenly m-2">
+        <ul className="flex flex-1 flex-wrap justify-evenly gap-y-3 gap-x-2 md:mt-2">
           <li>
-            <CustomTag label="React" />
+            <CustomTag label="Web & Mobile Design" />
           </li>
           <li>
-            <CustomTag label="React Native/Expo" />
+            <CustomTag label="Responsive UI" />
           </li>
           <li>
-            <CustomTag label="TypeScript" />
+            <CustomTag label="Single-Page Applications" />
+          </li>
+          <li>
+            <CustomTag label="API Integration" />
           </li>
         </ul>
       </div>
-      <div className="flex h-[100] w-1/2 mx-auto my-2 md:w-[0.5px] p-[0.5px] md:my-0 bg-(--input-border) rounded-full"></div>
-      <div className="flex flex-1 justify-between flex-col p-4 gap-y-5">
+      <div className="flex h-[100] w-1/2 mx-auto my-4 md:w-[0.5px] p-[0.5px] md:my-0 bg-(--input-border) rounded-full"></div>
+      <div className="flex flex-1 justify-between   flex-col p-4 gap-y-5">
         <span className="flex justify-evenly items-center -mb-2">
           <p className="text-3xl text-center text-(--text-primary)">
             Backend Development
           </p>
-          <FaNodeJs size={42} />
+
+          <FaNodeJs size={42} className="p-2" />
         </span>
         <p className="px-4 mx-auto text-lg text-(--text-secondary)">
-          I develop efficient, secure backend systems using Node.js and
-          Express.js to power robust APIs, often paired with PostgreSQL for
-          reliable, scalable data management.
+          I design efficient, secure backend systems using Node.js and
+          Express.js, powering REST APIs backed by PostgreSQL for reliable,
+          scalable data management.
         </p>
-        <ul className="flex flex-1 justify-evenly m-2">
+        <ul className="flex flex-1 flex-wrap justify-evenly gap-y-4 md:mt-2">
           <li>
-            <CustomTag label="API Design" />
+            <CustomTag label="REST APIs" />
+          </li>
+          <li>
+            <CustomTag label="Relational Databases" />
           </li>
           <li>
             <CustomTag label="SQL" />
           </li>
           <li>
-            <CustomTag label="Node.js/Express" />
+            <CustomTag label="OAuth Integration" />
           </li>
         </ul>
       </div>

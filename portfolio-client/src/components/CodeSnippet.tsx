@@ -82,18 +82,18 @@ function CodeSnippet() {
   };
 
   return (
-    <div className="w-[94dvw] md:w-155">
+    <div className="max-w-[90dvw] md:w-135">
       <figure className="relative group ">
         <button
           onClick={handleCopy}
-          className="cursor-pointer absolute right-3 top-3 px-2 py-1 text-xs rounded border border-neutral-600 text-neutral-200 bg-neutral-800/70 backdrop-blur hover:bg-neutral-700"
+          className="cursor-pointer absolute right-3 top-3 px-2 py-1 text-xs rounded border border-neutral-600 text-neutral-200 bg-neutral-800/20 backdrop-blur hover:bg-neutral-700"
           aria-label="Copy code"
         >
           Copy
         </button>
 
         <div className="flex flex-1 border border-neutral-600 animated-divider rounded-md bg-neutral-900 overflow-x-auto bg-glow">
-          <div className="flex w-full">
+          <div className="flex w-full mt-2">
             {/* Line numbers */}
             <ol className="select-none text-neutral-500 text-xs px-3 py-4 text-right tabular-nums leading-6 border-r border-neutral-800">
               {code.map((_, i) => (
@@ -104,7 +104,7 @@ function CodeSnippet() {
             </ol>
 
             {/* Code lines */}
-            <pre className="font-mono text-[13px] md:text-[15px] leading-6 text-neutral-200 pl-2 py-4">
+            <pre className="font-mono text-[13px] md:text-[15px] leading-6 text-neutral-200 px-2 py-4">
               {code.map((line, i) => (
                 <code key={i} className="block">
                   {line}
@@ -114,7 +114,7 @@ function CodeSnippet() {
           </div>
         </div>
       </figure>
-      <div className="flex  mt-8 -mb-8 pb-2 justify-center items-center gap-2 relative">
+      <div className="flex flex-wrap mt-8 pb-2 justify-center items-center gap-2 relative">
         <input
           type="text"
           id="firstName"

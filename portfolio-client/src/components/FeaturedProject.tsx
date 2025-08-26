@@ -113,7 +113,7 @@ export default function FeaturedProject(p: FeaturedProjectProps) {
           </div>
 
           {/* RIGHT: Device Mock / Code card */}
-          <div className="relative">
+          <div className="relative py-12 md:py-0">
             {/* Laptop frame */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
@@ -123,7 +123,7 @@ export default function FeaturedProject(p: FeaturedProjectProps) {
               className="relative mx-auto mt-2 md:mt-0 w-full max-w-xl rounded-2xl border border-white/10 bg-gradient-to-b from-slate-950/90 to-neutral-950/90 p-4 shadow-[0_40px_120px_-40px_rgba(168,85,247,.3),0_0_0_1px_rgba(255,255,255,.04)]"
             >
               {/* Top bar */}
-              <div className="mb-2 flex items-center gap-x-2">
+              <div className="hidden mb-2 md:flex items-center gap-x-2">
                 <div className="h-2 w-2 rounded-full bg-rose-400/70" />
                 <div className="h-2 w-2 rounded-full bg-amber-300/70" />
                 <div className="h-2 w-2 rounded-full bg-emerald-400/70" />
@@ -132,7 +132,7 @@ export default function FeaturedProject(p: FeaturedProjectProps) {
               {/* Screen */}
               <div className="relative overflow-hidden rounded-xl backdrop-blur">
                 <div className="absolute inset-0 bg-[radial-gradient(1200px_200px_at_20%_-20%,rgba(56,189,248,.16),transparent),radial-gradient(800px_200px_at_120%_120%,rgba(217,70,239,.14),transparent)]" />
-                <img src={appImage} height={100} />
+                <img src={appImage} height={100} className="-mb-4" />
               </div>
 
               {/* Base */}
@@ -144,7 +144,7 @@ export default function FeaturedProject(p: FeaturedProjectProps) {
               whileInView={{ opacity: 1, y: 0, rotate: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="absolute -right-8 -top-12 md:-right-3 md:-top-6  w-[18rem] max-w-[70vw] rounded-xl border border-sky-400/30 bg-slate-950/90 p-4 text-[12px] leading-relaxed text-sky-200 shadow-[0_0_40px_-10px_rgba(56,189,248,.6)] md:block scale-70 md:scale-100"
+              className="absolute -top-12 -right-12 md:-right-3 md:-top-6 w-[18rem] :max-w-[70vw] rounded-xl border border-sky-400/30 bg-slate-950/90 p-4 text-[12px] leading-relaxed text-sky-200 shadow-[0_0_40px_-10px_rgba(56,189,248,.6)] md:block scale-70 md:scale-100"
             >
               <code>{`<div class="feature">\n  <h1>{message}</h1>\n  <p>Track every workout +\n discover new exercises.</p>\n</div>\n\n<script>\n  const message = 'Welcome!';\n</script>`}</code>
             </motion.pre>
@@ -175,7 +175,7 @@ export default function FeaturedProject(p: FeaturedProjectProps) {
         <hr className="animated-divider mt-8 md:mt-16 w-7/8 mx-auto" />
 
         {/* Secondary row: detail cards */}
-        <div className="mt-8 grid gap-6 sm:grid-cols-3">
+        <div className="mt-8 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
           {details.map((d) => (
             <div
               key={d.title}

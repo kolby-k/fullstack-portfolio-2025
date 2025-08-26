@@ -12,16 +12,16 @@ function App() {
 
   return (
     <>
-      <header className="header h-28 md:h-48">
+      <header className="header h-28 md:h-48 min-w-[350px]">
         <img
           src="/logo.png"
           width={70}
           height={70}
-          className="absolute left-10 top-2 md:top-8 img-glow cursor-pointer"
+          className="absolute left-10 top-2 md:top-8 img-glow cursor-pointer xs-hidden"
           onClick={() => nav("/")}
         />
         <NavBar />
-        <span className="absolute right-10 md:right-[2%] top-8">
+        <span className="absolute right-10 md:right-[2%] top-8 xs-hidden">
           <ThemeToggle />
         </span>
       </header>

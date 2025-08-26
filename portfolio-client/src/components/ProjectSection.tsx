@@ -40,13 +40,13 @@ function ProjectSection() {
       <div className="flex flex-wrap justify-evenly items-center md:gap-12 relative">
         <span className="self-start max-w-[500px] md:pt-10">
           <h2 className="font-semibold text-5xl text-(--text-primary) text-center my-2">
-            Recent Projects
+            More Projects
           </h2>
           <p className="text-lg text-(--text-secondary) text-left pl-2">
-            Explore more of my work — from modern single-page web apps to
-            scalable full-stack solutions.
+            Explore my additional work — from simple single-page web apps to
+            more complex, scalable full-stack solutions.
           </p>
-          <hr className="animated-divider mt-10 hidden md:flex  " />
+          <hr className="animated-divider mt-10 hidden md:flex" />
         </span>
         <img
           src={Kolby3DImage}
@@ -54,7 +54,7 @@ function ProjectSection() {
         />
       </div>
 
-      <div className="flex flex-1 flex-wrap justify-evenly items-start p-4 md:mt-8 gap-10">
+      <div className="flex flex-1 flex-wrap justify-evenly items-start p-4 md:mt-8 gap-10 relative">
         {PROJECTS.map((project) => (
           <ProjectCard
             key={`project-${project.appRedirectUrl}`}
