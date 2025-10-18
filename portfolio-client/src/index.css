@@ -572,3 +572,8 @@ canvas {
     display: none;
   }
 }
+
+#project-image {
+  height: 220px;
+  width: auto;
+}

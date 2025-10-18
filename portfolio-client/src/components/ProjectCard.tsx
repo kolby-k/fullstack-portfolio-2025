@@ -23,7 +23,11 @@ function ProjectCard({ project }: ProjectCardProps) {
         rel="noreferrer"
       >
         <div className="flex justify-center items-center flex-2 mb-4">
-          <img src={project.imageSrc} className="rounded-sm w-120" />
+          <img
+            src={project.imageSrc}
+            id="project-image"
+            className="rounded-sm bg-red-400"
+          />
         </div>
 
         <div className="flex flex-2 flex-col">
