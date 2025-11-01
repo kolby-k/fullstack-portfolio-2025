@@ -8,7 +8,7 @@ const PROJECTS = [
   {
     title: "Summarizer",
     description:
-      "A Typescript full-stack web application that generates real-time summaries of online articles using the OpenAI API.",
+      "A full-stack web app built with Next.js and TypeScript that leverages large language models to generate real-time summaries of online articles.",
     imageSrc: SummarizerProjectBannerImage,
     appRedirectUrl: "/summarizer-app",
     tagList: ["Next.js", "Authentication", "Rate Limiting"],
@@ -17,16 +17,16 @@ const PROJECTS = [
   {
     title: "Developer Toolkit",
     description:
-      "A React client-side web application that provides developers with a variety of common tools to aid in fullstack development.",
+      "A client-side web application built with React that offers developers a collection of helpful tools to assist with full-stack development.",
     imageSrc: DevToolKitProjectBannerImage,
     appRedirectUrl: "/dev-toolkit-app",
     tagList: ["DOM APIs", "Algorithms", "TypeScript"],
-    projectUrl: "https://developer-toolkit.netlify.app/",
+    projectUrl: "https://developer-tk.netlify.app/",
   },
   {
     title: "What The Temp",
     description:
-      "A React client-side application that provides quick same-day weather forecasts using the Open-Meteo API.",
+      "A simple React-based client-side application that delivers quick, same-day weather forecasts powered by the Open-Meteo API.",
     imageSrc: WeatherProjectBannerImage,
     appRedirectUrl: "/what-the-temp-app",
     tagList: ["Responsive UI", "REST API", "Caching"],
